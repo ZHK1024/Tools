@@ -30,7 +30,6 @@
     BKTask.addTask(^{
         NSLog(@"bbb");
     });
-
 }
 
 - (void)didReceiveMemoryWarning {

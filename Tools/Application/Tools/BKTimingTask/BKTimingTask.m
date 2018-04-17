@@ -12,14 +12,17 @@
 static BKTimingTask *task = nil;
 // 延时
 static NSTimeInterval second_tk = 0.0f;
-//
+
+// task identifier
 static UIBackgroundTaskIdentifier taskIdentifier;
+
+// add task block
+static void(^addTask)(TimingTaskBlock task);
 
 @interface BKTimingTask ()
 
 @property (nonatomic, strong) NSMutableArray *tasks;
 @property (nonatomic, strong) NSTimer *timer;
-
 
 @end
 
@@ -66,7 +69,7 @@ static UIBackgroundTaskIdentifier taskIdentifier;
         
         __weak typeof(task) weakTask = task;
         // 初始化添加 task 的 block
-        task.addTask = ^(TimingTaskBlock task) {
+        addTask = ^(TimingTaskBlock task) {
             [weakTask.tasks addObject:task];
         };
     });
@@ -96,6 +99,7 @@ static UIBackgroundTaskIdentifier taskIdentifier;
         
     }];
     // 延时调用
+    // 此处不能用 dispatch_after, 不会进行延迟调用.
     __weak typeof(task) weakTask = task;
     task.timer = [NSTimer scheduledTimerWithTimeInterval:second_tk target:weakTask selector:@selector(performTasks) userInfo:nil repeats:NO];
 }
@@ -124,6 +128,10 @@ static UIBackgroundTaskIdentifier taskIdentifier;
 }
 
 #pragma mark - Getter
+
+- (void (^)(TimingTaskBlock))addTask {
+    return addTask;
+}
 
 - (NSTimeInterval)second {
     return second_tk;
