@@ -13,6 +13,7 @@
 		24FAA7A7208585F300A2CD84 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FAA7A6208585F300A2CD84 /* main.m */; };
 		24FAA7B0208586B000A2CD84 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FAA7AF208586B000A2CD84 /* AppDelegate.m */; };
 		24FAA7B7208586B700A2CD84 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FAA7B6208586B700A2CD84 /* ViewController.m */; };
+		24FAA7BC2085892200A2CD84 /* BKTimingTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FAA7BB2085892200A2CD84 /* BKTimingTask.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		24FAA7AF208586B000A2CD84 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		24FAA7B5208586B700A2CD84 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		24FAA7B6208586B700A2CD84 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		24FAA7BA2085892200A2CD84 /* BKTimingTask.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BKTimingTask.h; sourceTree = "<group>"; };
+		24FAA7BB2085892200A2CD84 /* BKTimingTask.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BKTimingTask.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,8 +118,18 @@
 		24FAA7B8208586D100A2CD84 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				24FAA7B92085890300A2CD84 /* BKTimingTask */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		24FAA7B92085890300A2CD84 /* BKTimingTask */ = {
+			isa = PBXGroup;
+			children = (
+				24FAA7BA2085892200A2CD84 /* BKTimingTask.h */,
+				24FAA7BB2085892200A2CD84 /* BKTimingTask.m */,
+			);
+			path = BKTimingTask;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +203,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24FAA7BC2085892200A2CD84 /* BKTimingTask.m in Sources */,
 				24FAA7B7208586B700A2CD84 /* ViewController.m in Sources */,
 				24FAA7B0208586B000A2CD84 /* AppDelegate.m in Sources */,
 				24FAA7A7208585F300A2CD84 /* main.m in Sources */,
