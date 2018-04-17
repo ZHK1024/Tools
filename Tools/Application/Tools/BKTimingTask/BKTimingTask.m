@@ -12,13 +12,14 @@
 static BKTimingTask *task = nil;
 // 延时
 static NSTimeInterval second_tk = 0.0f;
-
+//
 static UIBackgroundTaskIdentifier taskIdentifier;
 
 @interface BKTimingTask ()
 
 @property (nonatomic, strong) NSMutableArray *tasks;
 @property (nonatomic, strong) NSTimer *timer;
+
 
 @end
 
@@ -38,11 +39,21 @@ static UIBackgroundTaskIdentifier taskIdentifier;
         
         // 进入前台直接执行任务
         [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidBecomeActiveNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
-            [task performTasks];
+            if (BKTask.performTasksWhenApplicationDidBecomeActive) {
+                [task performTasks];
+            }
         }];
+        
         // 进入后台注册后台任务
         [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidEnterBackgroundNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
             [task registBackGroundTask];
+        }];
+        
+        // 应用退出时执行
+        [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillTerminateNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+            if (BKTask.performTasksWhenApplicationWillTerminate) {
+                [task performTasks];
+            }
         }];
     });
     return task;
@@ -97,7 +108,14 @@ static UIBackgroundTaskIdentifier taskIdentifier;
     [self.tasks addObject:task];
 }
 
-#pragma mark -
+/**
+ 取消所有任务
+ */
+- (void)cancelTasks {
+    [self.tasks removeAllObjects];
+}
+
+#pragma mark - Private
 
 /**
  执行所有任务
@@ -105,6 +123,10 @@ static UIBackgroundTaskIdentifier taskIdentifier;
 - (void)performTasks {
     for (TimingTaskBlock task in _tasks) {
         task();
+    }
+    // 执行完成则移除所有任务
+    if (_removeTasksWhenFinshed) {
+        [_tasks removeAllObjects];
     }
     if (_timer) {
         [_timer invalidate];

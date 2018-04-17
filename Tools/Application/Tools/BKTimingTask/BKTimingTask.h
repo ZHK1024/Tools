@@ -15,6 +15,21 @@ typedef void(^TimingTaskBlock)(void);
 @interface BKTimingTask : NSObject
 
 /**
+ 当应用退出时候立刻执行所有任务
+ */
+@property (nonatomic, assign) BOOL performTasksWhenApplicationWillTerminate;
+
+/**
+ 当应用进入前台时候立刻执行所有任务
+ */
+@property (nonatomic, assign) BOOL performTasksWhenApplicationDidBecomeActive;
+
+/**
+ 当任务执行完成移除任务
+ */
+@property (nonatomic, assign) BOOL removeTasksWhenFinshed;
+
+/**
  获取单例对象
 
  @return 单例对象
@@ -52,5 +67,10 @@ typedef void(^TimingTaskBlock)(void);
  @param task 任务
  */
 - (void)addTask:(TimingTaskBlock)task;
+
+/**
+ 取消所有任务
+ */
+- (void)cancelTasks;
 
 @end
