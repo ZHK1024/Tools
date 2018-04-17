@@ -13,7 +13,12 @@ static BKTimingTask *task = nil;
 // 延时
 static NSTimeInterval second_tk = 0.0f;
 
+static UIBackgroundTaskIdentifier taskIdentifier;
+
 @interface BKTimingTask ()
+
+@property (nonatomic, strong) NSMutableArray *tasks;
+@property (nonatomic, strong) NSTimer *timer;
 
 @end
 
@@ -30,11 +35,15 @@ static NSTimeInterval second_tk = 0.0f;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         task = [[BKTimingTask alloc] init];
-        [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidEnterBackgroundNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
-            NSLog(@"UIApplicationWillEnterForegroundNotification");
-        }];
+        
         [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidBecomeActiveNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
             NSLog(@"UIApplicationDidBecomeActiveNotification");
+            [task performTasks];
+        }];
+        [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidEnterBackgroundNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
+            NSLog(@"UIApplicationDidEnterBackgroundNotification");
+            [task registBackGroundTask];
+            
         }];
     });
     return task;
@@ -50,7 +59,65 @@ static NSTimeInterval second_tk = 0.0f;
 }
 
 + (void)addTask:(TimingTaskBlock)task {
-//    [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillEnterForegroundNotification object:nil queue:nil usingBlock:task];
+    [BKTask addTask:task];
+}
+
+#pragma mark -
+
+/**
+ 注册后台任务
+ */
+- (void)registBackGroundTask {
+    UIApplication *app = [UIApplication sharedApplication];
+
+    taskIdentifier =
+    [app beginBackgroundTaskWithExpirationHandler:^{
+        [app endBackgroundTask:taskIdentifier];
+        
+    }];
+    __weak typeof(task) weakTask = task;
+    task.timer = [NSTimer scheduledTimerWithTimeInterval:second_tk target:weakTask selector:@selector(performTasks) userInfo:nil repeats:NO];
+}
+
+/**
+ 设置延时时间
+ 
+ @param second 延时时间(秒)
+ */
+- (void)setTime:(NSTimeInterval)second {
+    second_tk = second;
+}
+
+/**
+ 添加定时任务
+ 
+ @param task 任务
+ */
+- (void)addTask:(TimingTaskBlock)task {
+    [self.tasks addObject:task];
+}
+
+#pragma mark -
+
+- (void)performTasks {
+    NSLog(@"%s", __func__);
+    NSLog(@"second = %f", second_tk);
+    for (TimingTaskBlock task in _tasks) {
+        task();
+    }
+    if (_timer) {
+        [_timer invalidate];
+        self.tasks = nil;
+    }
+}
+
+#pragma mark - Getter
+
+- (NSMutableArray *)tasks {
+    if (_tasks == nil) {
+        self.tasks = [NSMutableArray new];
+    }
+    return _tasks;
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "BKTimingTask.h"
 
 @interface ViewController ()
 
@@ -17,11 +18,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationWillEnterForegroundNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
-        
+    
+    [BKTask setTime:60.0f];
+    [BKTask addTask:^{
+        NSLog(@"abc");
     }];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

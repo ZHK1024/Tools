@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define BKTask [BKTimingTask task]
+
 typedef void(^TimingTaskBlock)(void);
 
 @interface BKTimingTask : NSObject
@@ -19,6 +21,8 @@ typedef void(^TimingTaskBlock)(void);
  */
 + (instancetype)task;
 
+#pragma mark -
+
 /**
  设置延时时间
 
@@ -26,6 +30,27 @@ typedef void(^TimingTaskBlock)(void);
  */
 + (void)setTime:(NSTimeInterval)second;
 
+/**
+ 添加定时任务
+
+ @param task 任务
+ */
 + (void)addTask:(TimingTaskBlock)task;
+
+#pragma mark -
+
+/**
+ 设置延时时间
+ 
+ @param second 延时时间(秒)
+ */
+- (void)setTime:(NSTimeInterval)second;
+
+/**
+ 添加定时任务
+ 
+ @param task 任务
+ */
+- (void)addTask:(TimingTaskBlock)task;
 
 @end
