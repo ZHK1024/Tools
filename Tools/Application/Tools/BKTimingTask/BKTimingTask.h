@@ -34,7 +34,7 @@ typedef void(^TimingTaskBlock)(void);
 /**
  添加任务
  */
-@property (nonatomic, copy, readonly) void(^addTask)(TimingTaskBlock task);
+@property (nonatomic, copy, readonly) BKTimingTask *(^addTask)(TimingTaskBlock task);
 
 /**
  获取单例对象

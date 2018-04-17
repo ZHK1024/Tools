@@ -17,7 +17,7 @@ static NSTimeInterval second_tk = 0.0f;
 static UIBackgroundTaskIdentifier taskIdentifier;
 
 // add task block
-static void(^addTask)(TimingTaskBlock task);
+static BKTimingTask *(^addTask)(TimingTaskBlock task);
 
 @interface BKTimingTask ()
 
@@ -69,8 +69,9 @@ static void(^addTask)(TimingTaskBlock task);
         
         __weak typeof(task) weakTask = task;
         // 初始化添加 task 的 block
-        addTask = ^(TimingTaskBlock task) {
+        addTask = ^BKTimingTask *(TimingTaskBlock task) {
             [weakTask.tasks addObject:task];
+            return weakTask;
         };
     });
     return task;
@@ -96,7 +97,6 @@ static void(^addTask)(TimingTaskBlock task);
     taskIdentifier =
     [app beginBackgroundTaskWithExpirationHandler:^{
         [app endBackgroundTask:taskIdentifier];
-        
     }];
     // 延时调用
     // 此处不能用 dispatch_after, 不会进行延迟调用.
@@ -129,7 +129,7 @@ static void(^addTask)(TimingTaskBlock task);
 
 #pragma mark - Getter
 
-- (void (^)(TimingTaskBlock))addTask {
+- (BKTimingTask * (^)(TimingTaskBlock))addTask {
     return addTask;
 }
 

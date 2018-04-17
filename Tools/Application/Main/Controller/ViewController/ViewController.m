@@ -22,14 +22,19 @@
     BKTask.second = 10.0f;
     BKTask.performTasksWhenApplicationWillTerminate = YES;
     BKTask.removeTasksWhenFinshed = YES;
-    
     BKTask.addTask(^{
         NSLog(@"aaa");
     });
-    
     BKTask.addTask(^{
         NSLog(@"bbb");
     });
+    
+    BKTask.addTask(^{
+        NSLog(@"ccc");
+    }).addTask(^{
+        NSLog(@"ddd");
+    });
+
 }
 
 - (void)didReceiveMemoryWarning {
