@@ -19,15 +19,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    [BKTask setTime:6.0f];
+    BKTask.second = 10.0f;
     BKTask.performTasksWhenApplicationWillTerminate = YES;
     BKTask.removeTasksWhenFinshed = YES;
-    [BKTask addTask:^{
-        NSLog(@"abc");
-    }];
-    [BKTask addTask:^{
-        NSLog(@"bcd");
-    }];
+    
+    BKTask.addTask(^{
+        NSLog(@"aaa");
+    });
+    
+    BKTask.addTask(^{
+        NSLog(@"bbb");
+    });
+
 }
 
 - (void)didReceiveMemoryWarning {

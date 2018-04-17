@@ -14,8 +14,10 @@ typedef void(^TimingTaskBlock)(void);
 
 @interface BKTimingTask : NSObject
 
+@property (nonatomic, assign) NSTimeInterval second;
+
 /**
- 当应用退出时候立刻执行所有任务
+ 当应用退出时候但倒计时未到, 是否立刻执行所有任务
  */
 @property (nonatomic, assign) BOOL performTasksWhenApplicationWillTerminate;
 
@@ -30,6 +32,11 @@ typedef void(^TimingTaskBlock)(void);
 @property (nonatomic, assign) BOOL removeTasksWhenFinshed;
 
 /**
+ 添加任务
+ */
+@property (nonatomic, copy) void(^addTask)(TimingTaskBlock task);
+
+/**
  获取单例对象
 
  @return 单例对象
@@ -37,36 +44,6 @@ typedef void(^TimingTaskBlock)(void);
 + (instancetype)task;
 
 #pragma mark -
-
-/**
- 设置延时时间
-
- @param second 延时时间(秒)
- */
-+ (void)setTime:(NSTimeInterval)second;
-
-/**
- 添加定时任务
-
- @param task 任务
- */
-+ (void)addTask:(TimingTaskBlock)task;
-
-#pragma mark -
-
-/**
- 设置延时时间
- 
- @param second 延时时间(秒)
- */
-- (void)setTime:(NSTimeInterval)second;
-
-/**
- 添加定时任务
- 
- @param task 任务
- */
-- (void)addTask:(TimingTaskBlock)task;
 
 /**
  取消所有任务

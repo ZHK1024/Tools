@@ -25,6 +25,9 @@ static UIBackgroundTaskIdentifier taskIdentifier;
 
 @implementation BKTimingTask
 
+/**
+ load 注册相关内容
+ */
 + (void)load {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -32,6 +35,11 @@ static UIBackgroundTaskIdentifier taskIdentifier;
     });
 }
 
+/**
+ 获取单例对象
+ 
+ @return 单例对象
+ */
 + (instancetype)task {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -55,58 +63,17 @@ static UIBackgroundTaskIdentifier taskIdentifier;
                 [task performTasks];
             }
         }];
+        
+        __weak typeof(task) weakTask = task;
+        // 初始化添加 task 的 block
+        task.addTask = ^(TimingTaskBlock task) {
+            [weakTask.tasks addObject:task];
+        };
     });
     return task;
 }
 
-/**
- 设置延时时间
- 
- @param second 延时时间(秒)
- */
-+ (void)setTime:(NSTimeInterval)second {
-    second_tk = second;
-}
-
-+ (void)addTask:(TimingTaskBlock)task {
-    [BKTask addTask:task];
-}
-
-#pragma mark -
-
-/**
- 注册后台任务
- */
-- (void)registBackGroundTask {
-    UIApplication *app = [UIApplication sharedApplication];
-
-    taskIdentifier =
-    [app beginBackgroundTaskWithExpirationHandler:^{
-        [app endBackgroundTask:taskIdentifier];
-        
-    }];
-    // 延时调用
-    __weak typeof(task) weakTask = task;
-    task.timer = [NSTimer scheduledTimerWithTimeInterval:second_tk target:weakTask selector:@selector(performTasks) userInfo:nil repeats:NO];
-}
-
-/**
- 设置延时时间
- 
- @param second 延时时间(秒)
- */
-- (void)setTime:(NSTimeInterval)second {
-    second_tk = second;
-}
-
-/**
- 添加定时任务
- 
- @param task 任务
- */
-- (void)addTask:(TimingTaskBlock)task {
-    [self.tasks addObject:task];
-}
+#pragma mark - Public
 
 /**
  取消所有任务
@@ -116,6 +83,22 @@ static UIBackgroundTaskIdentifier taskIdentifier;
 }
 
 #pragma mark - Private
+
+/**
+ 注册后台任务
+ */
+- (void)registBackGroundTask {
+    UIApplication *app = [UIApplication sharedApplication];
+    
+    taskIdentifier =
+    [app beginBackgroundTaskWithExpirationHandler:^{
+        [app endBackgroundTask:taskIdentifier];
+        
+    }];
+    // 延时调用
+    __weak typeof(task) weakTask = task;
+    task.timer = [NSTimer scheduledTimerWithTimeInterval:second_tk target:weakTask selector:@selector(performTasks) userInfo:nil repeats:NO];
+}
 
 /**
  执行所有任务
@@ -134,7 +117,17 @@ static UIBackgroundTaskIdentifier taskIdentifier;
     }
 }
 
+#pragma mark - Setter
+
+- (void)setSecond:(NSTimeInterval)second {
+    second_tk = second;
+}
+
 #pragma mark - Getter
+
+- (NSTimeInterval)second {
+    return second_tk;
+}
 
 - (NSMutableArray *)tasks {
     if (_tasks == nil) {
