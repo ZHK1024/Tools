@@ -36,14 +36,13 @@ static UIBackgroundTaskIdentifier taskIdentifier;
     dispatch_once(&onceToken, ^{
         task = [[BKTimingTask alloc] init];
         
+        // 进入前台直接执行任务
         [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidBecomeActiveNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
-            NSLog(@"UIApplicationDidBecomeActiveNotification");
             [task performTasks];
         }];
+        // 进入后台注册后台任务
         [[NSNotificationCenter defaultCenter] addObserverForName:UIApplicationDidEnterBackgroundNotification object:nil queue:nil usingBlock:^(NSNotification * _Nonnull note) {
-            NSLog(@"UIApplicationDidEnterBackgroundNotification");
             [task registBackGroundTask];
-            
         }];
     });
     return task;
@@ -75,6 +74,7 @@ static UIBackgroundTaskIdentifier taskIdentifier;
         [app endBackgroundTask:taskIdentifier];
         
     }];
+    // 延时调用
     __weak typeof(task) weakTask = task;
     task.timer = [NSTimer scheduledTimerWithTimeInterval:second_tk target:weakTask selector:@selector(performTasks) userInfo:nil repeats:NO];
 }
@@ -99,9 +99,10 @@ static UIBackgroundTaskIdentifier taskIdentifier;
 
 #pragma mark -
 
+/**
+ 执行所有任务
+ */
 - (void)performTasks {
-    NSLog(@"%s", __func__);
-    NSLog(@"second = %f", second_tk);
     for (TimingTaskBlock task in _tasks) {
         task();
     }
