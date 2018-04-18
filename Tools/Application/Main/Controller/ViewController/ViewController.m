@@ -20,6 +20,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     BKTask.second = 10.0f;
+    BKTask.maxTaskNums = 1;
     BKTask.performTasksWhenApplicationWillTerminate = YES;
     BKTask.removeTasksWhenFinshed = YES;
     BKTask.addTask(^{

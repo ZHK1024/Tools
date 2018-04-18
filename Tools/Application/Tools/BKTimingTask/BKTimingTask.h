@@ -14,7 +14,15 @@ typedef void(^TimingTaskBlock)(void);
 
 @interface BKTimingTask : NSObject
 
+/**
+ 延迟时间
+ */
 @property (nonatomic, assign) NSTimeInterval second;
+
+/**
+ 最大任务数, 默认 0 (无限制)
+ */
+@property (nonatomic, assign) NSUInteger     maxTaskNums;
 
 /**
  当应用退出时候但倒计时未到, 是否立刻执行所有任务

@@ -70,7 +70,9 @@ static BKTimingTask *(^addTask)(TimingTaskBlock task);
         __weak typeof(task) weakTask = task;
         // 初始化添加 task 的 block
         addTask = ^BKTimingTask *(TimingTaskBlock task) {
-            [weakTask.tasks addObject:task];
+            if (weakTask.tasks.count < weakTask.maxTaskNums || weakTask.maxTaskNums == 0) {
+                [weakTask.tasks addObject:task];
+            }
             return weakTask;
         };
     });
