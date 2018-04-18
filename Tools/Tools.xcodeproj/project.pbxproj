@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		243636EB208737BE000AD781 /* ZHKSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 243636EA208737BE000AD781 /* ZHKSettingViewController.m */; };
+		243636F12087397A000AD781 /* ZHKSettingListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 243636F02087397A000AD781 /* ZHKSettingListCell.m */; };
+		243636F42087398A000AD781 /* ZHKSettingHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 243636F32087398A000AD781 /* ZHKSettingHeaderView.m */; };
+		243636F720873998000AD781 /* ZHKSettingDescriptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 243636F620873998000AD781 /* ZHKSettingDescriptionCell.m */; };
 		24FAA79F208585F300A2CD84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24FAA79D208585F300A2CD84 /* Main.storyboard */; };
 		24FAA7A1208585F300A2CD84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24FAA7A0208585F300A2CD84 /* Assets.xcassets */; };
 		24FAA7A4208585F300A2CD84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24FAA7A2208585F300A2CD84 /* LaunchScreen.storyboard */; };
@@ -14,9 +18,22 @@
 		24FAA7B0208586B000A2CD84 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FAA7AF208586B000A2CD84 /* AppDelegate.m */; };
 		24FAA7B7208586B700A2CD84 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FAA7B6208586B700A2CD84 /* ViewController.m */; };
 		24FAA7C02085946500A2CD84 /* BKTimingTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 24FAA7BF2085946500A2CD84 /* BKTimingTask.m */; };
+		8AE6C2315A7BF850082AF47B /* libPods-Tools.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DC7895D7746F15F3D69BB776 /* libPods-Tools.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		20112DC9642A1719567914A1 /* Pods-Tools.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tools.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tools/Pods-Tools.debug.xcconfig"; sourceTree = "<group>"; };
+		243636E9208737BE000AD781 /* ZHKSettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHKSettingViewController.h; sourceTree = "<group>"; };
+		243636EA208737BE000AD781 /* ZHKSettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHKSettingViewController.m; sourceTree = "<group>"; };
+		243636EF2087397A000AD781 /* ZHKSettingListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHKSettingListCell.h; sourceTree = "<group>"; };
+		243636F02087397A000AD781 /* ZHKSettingListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHKSettingListCell.m; sourceTree = "<group>"; };
+		243636F22087398A000AD781 /* ZHKSettingHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHKSettingHeaderView.h; sourceTree = "<group>"; };
+		243636F32087398A000AD781 /* ZHKSettingHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHKSettingHeaderView.m; sourceTree = "<group>"; };
+		243636F520873998000AD781 /* ZHKSettingDescriptionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZHKSettingDescriptionCell.h; sourceTree = "<group>"; };
+		243636F620873998000AD781 /* ZHKSettingDescriptionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZHKSettingDescriptionCell.m; sourceTree = "<group>"; };
+		243636F920873E86000AD781 /* Functions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Functions.h; sourceTree = "<group>"; };
+		243636FA20873E86000AD781 /* CodeDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeDefinition.h; sourceTree = "<group>"; };
+		243636FB20873EDF000AD781 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
 		24FAA794208585F300A2CD84 /* Tools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24FAA79E208585F300A2CD84 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		24FAA7A0208585F300A2CD84 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -29,6 +46,8 @@
 		24FAA7B6208586B700A2CD84 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		24FAA7BE2085946500A2CD84 /* BKTimingTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKTimingTask.h; sourceTree = "<group>"; };
 		24FAA7BF2085946500A2CD84 /* BKTimingTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKTimingTask.m; sourceTree = "<group>"; };
+		72C1386522EB1AD2272173BE /* Pods-Tools.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tools.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tools/Pods-Tools.release.xcconfig"; sourceTree = "<group>"; };
+		DC7895D7746F15F3D69BB776 /* libPods-Tools.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tools.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,18 +55,78 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AE6C2315A7BF850082AF47B /* libPods-Tools.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		243636E7208737A1000AD781 /* ZHKSettings */ = {
+			isa = PBXGroup;
+			children = (
+				243636ED2087396C000AD781 /* ZHKSettingDescriptionCell */,
+				243636EE2087396C000AD781 /* ZHKSettingHeaderView */,
+				243636EC2087396C000AD781 /* ZHKSettingListCell */,
+				243636E8208737A1000AD781 /* ZHKSettingViewController */,
+			);
+			path = ZHKSettings;
+			sourceTree = "<group>";
+		};
+		243636E8208737A1000AD781 /* ZHKSettingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				243636E9208737BE000AD781 /* ZHKSettingViewController.h */,
+				243636EA208737BE000AD781 /* ZHKSettingViewController.m */,
+			);
+			path = ZHKSettingViewController;
+			sourceTree = "<group>";
+		};
+		243636EC2087396C000AD781 /* ZHKSettingListCell */ = {
+			isa = PBXGroup;
+			children = (
+				243636EF2087397A000AD781 /* ZHKSettingListCell.h */,
+				243636F02087397A000AD781 /* ZHKSettingListCell.m */,
+			);
+			path = ZHKSettingListCell;
+			sourceTree = "<group>";
+		};
+		243636ED2087396C000AD781 /* ZHKSettingDescriptionCell */ = {
+			isa = PBXGroup;
+			children = (
+				243636F520873998000AD781 /* ZHKSettingDescriptionCell.h */,
+				243636F620873998000AD781 /* ZHKSettingDescriptionCell.m */,
+			);
+			path = ZHKSettingDescriptionCell;
+			sourceTree = "<group>";
+		};
+		243636EE2087396C000AD781 /* ZHKSettingHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				243636F22087398A000AD781 /* ZHKSettingHeaderView.h */,
+				243636F32087398A000AD781 /* ZHKSettingHeaderView.m */,
+			);
+			path = ZHKSettingHeaderView;
+			sourceTree = "<group>";
+		};
+		243636F820873E3A000AD781 /* Macros */ = {
+			isa = PBXGroup;
+			children = (
+				243636FB20873EDF000AD781 /* Header.h */,
+				243636FA20873E86000AD781 /* CodeDefinition.h */,
+				243636F920873E86000AD781 /* Functions.h */,
+			);
+			path = Macros;
+			sourceTree = "<group>";
+		};
 		24FAA78B208585F300A2CD84 = {
 			isa = PBXGroup;
 			children = (
 				24FAA7B1208586B700A2CD84 /* Application */,
 				24FAA796208585F300A2CD84 /* Tools */,
 				24FAA795208585F300A2CD84 /* Products */,
+				B9FB1E7BB29D195C34F4E295 /* Pods */,
+				F1BE067D2B5102CE7D35E7AC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -84,6 +163,7 @@
 		24FAA7B1208586B700A2CD84 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				243636F820873E3A000AD781 /* Macros */,
 				24FAA7B8208586D100A2CD84 /* Tools */,
 				24FAA7B2208586B700A2CD84 /* Main */,
 			);
@@ -118,6 +198,7 @@
 		24FAA7B8208586D100A2CD84 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				243636E7208737A1000AD781 /* ZHKSettings */,
 				24FAA7BD2085946500A2CD84 /* BKTimingTask */,
 			);
 			path = Tools;
@@ -132,6 +213,23 @@
 			path = BKTimingTask;
 			sourceTree = "<group>";
 		};
+		B9FB1E7BB29D195C34F4E295 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				20112DC9642A1719567914A1 /* Pods-Tools.debug.xcconfig */,
+				72C1386522EB1AD2272173BE /* Pods-Tools.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		F1BE067D2B5102CE7D35E7AC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DC7895D7746F15F3D69BB776 /* libPods-Tools.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,9 +237,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24FAA7AA208585F300A2CD84 /* Build configuration list for PBXNativeTarget "Tools" */;
 			buildPhases = (
+				34F924330ADA6294D916E39E /* [CP] Check Pods Manifest.lock */,
 				24FAA790208585F300A2CD84 /* Sources */,
 				24FAA791208585F300A2CD84 /* Frameworks */,
 				24FAA792208585F300A2CD84 /* Resources */,
+				F0F179E064A055282E83D820 /* [CP] Embed Pods Frameworks */,
+				047820B03A94D22A0266E8A3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -203,15 +304,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		047820B03A94D22A0266E8A3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tools/Pods-Tools-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		34F924330ADA6294D916E39E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F0F179E064A055282E83D820 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tools/Pods-Tools-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		24FAA790208585F300A2CD84 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				243636F12087397A000AD781 /* ZHKSettingListCell.m in Sources */,
 				24FAA7B7208586B700A2CD84 /* ViewController.m in Sources */,
 				24FAA7C02085946500A2CD84 /* BKTimingTask.m in Sources */,
 				24FAA7B0208586B000A2CD84 /* AppDelegate.m in Sources */,
 				24FAA7A7208585F300A2CD84 /* main.m in Sources */,
+				243636F720873998000AD781 /* ZHKSettingDescriptionCell.m in Sources */,
+				243636F42087398A000AD781 /* ZHKSettingHeaderView.m in Sources */,
+				243636EB208737BE000AD781 /* ZHKSettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +496,7 @@
 		};
 		24FAA7AB208585F300A2CD84 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 20112DC9642A1719567914A1 /* Pods-Tools.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -357,6 +511,7 @@
 		};
 		24FAA7AC208585F300A2CD84 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72C1386522EB1AD2272173BE /* Pods-Tools.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
